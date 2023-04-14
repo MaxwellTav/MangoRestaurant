@@ -1,6 +1,15 @@
-﻿namespace Mango.Services.ProductAPI.DbContexts
+﻿using Mango.Services.ProductAPI.Models;
+using Microsoft.EntityFrameworkCore;
+
+namespace Mango.Services.ProductAPI.DbContexts
 {
-    public class ApplicationDbContext
+    public class ApplicationDbContext : DbContext
     {
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
+        {
+
+        }
+
+        public DbSet<Product> Products { get; set; }
     }
 }
