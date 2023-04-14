@@ -1,0 +1,4 @@
+﻿[*.cs]
+
+# CS8636: Invalid option 'false' for /nullable; must be 'disable', 'enable', 'warnings' or 'annotations'
+dotnet_diagnostic.CS8636.severity = silent
