@@ -36,5 +36,24 @@ namespace Mango.Services.ProductAPI.Controllers
 
             return _response;
         }
+
+        [HttpGet]
+        [Route("{id}")]
+        public async Task<object> Get(int id)
+        {
+            try
+            {
+                ProductDto productDto = await _productRepository.GetProductById(id);
+                _response.IsSuccess = true;
+                _response.Result = productDto;
+            }
+            catch (Exception error)
+            {
+                _response.IsSuccess = false;
+                _response.ErrorMessages = new List<string>() { error.Message };
+            }
+
+            return _response;
+        }
     }
 }
