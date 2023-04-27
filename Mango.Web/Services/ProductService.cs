@@ -56,7 +56,7 @@ namespace Mango.Web.Services
                 AccessToken = ""
             });
         }
-
+        
         public async Task<T> UpdateProductAsync<T>(ProductDto productDto)
         {
             return await this.SendAsync<T>(new ApiRequest()
