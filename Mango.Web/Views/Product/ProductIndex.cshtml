@@ -30,8 +30,8 @@
                     
                     <td>
                         <a asp-action="DetailsProduct" class="btn btn-primary" asp-route-productId="@item.ProductId"><i class="fas fa-th-list"></i> Details </a>
-                        <a asp-action="EditProduct" class="btn btn-warning" asp-route-productId="@item.ProductId"><i class="fas fa-edit"></i> Edit</a>
-                        <a asp-action="DeleteProduct" class="btn btn-danger" asp-route-productId="@item.ProductId"><i class="fas fa-trash"></i> Delete</a>
+                        <a asp-action="ProductEdit" class="btn btn-warning" asp-route-productId="@item.ProductId"><i class="fas fa-edit"></i> Edit</a>
+                        <a asp-action="ProductDelete" class="btn btn-danger" asp-route-productId="@item.ProductId"><i class="fas fa-trash"></i> Delete</a>
                     </td>
                 </tr>
             }
