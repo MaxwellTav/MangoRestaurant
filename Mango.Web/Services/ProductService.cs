@@ -67,10 +67,5 @@ namespace Mango.Web.Services
                 AccessToken = ""
             });
         }
-
-        public void Dispose()
-        {
-            throw new System.NotImplementedException();
-        }
     }
 }
