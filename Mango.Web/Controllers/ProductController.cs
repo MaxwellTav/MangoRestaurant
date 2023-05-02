@@ -103,5 +103,31 @@ namespace Mango.Web.Controllers
 
             return View(model);
         }
+
+        public async Task<IActionResult> ProductDetails(int productId)
+        {
+            var response = await _productService.GetProductByIdAsync<ResponseDto>(productId);
+            if (response != null && response.IsSuccess)
+            {
+                ProductDto model = JsonConvert.DeserializeObject<ProductDto>
+                    (Convert.ToString(response.Result));
+                return View(model);
+            }
+
+            return NotFound();
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> ProductDetails(ProductDto model)
+        {
+            if (ModelState.IsValid)
+            {
+                var response = await _productService.GetProductByIdAsync<ResponseDto>(model.ProductId);
+                if (response.IsSuccess)
+                    return RedirectToAction(nameof(ProductIndex));
+            }
+
+            return View(model);
+        }
     }
 }
