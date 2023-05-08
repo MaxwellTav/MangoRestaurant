@@ -35,6 +35,14 @@ namespace Mango.Services.Identity
                     ClientSecrets = { new Secret("secret".Sha256()) },
                     AllowedGrantTypes = GrantTypes.ClientCredentials,
                     AllowedScopes = { "read", "write", "profile" }
+                },
+                new Client()
+                {
+                    ClientId = "mango",
+                    ClientSecrets = { new Secret("secret".Sha256()) },
+                    AllowedGrantTypes = GrantTypes.Code,
+                    RedirectUris = { "" },
+                    AllowedScopes = { "read", "write", "profile" }
                 }
         };
     }
